@@ -28,4 +28,7 @@
    2024-04-13 10:07:36 [INFO][http-nio-8080-exec-3 ][ o.s.w.s.DispatcherServlet:554] Completed initialization in 3 ms
    2024-04-13 10:07:36 [WARN][http-nio-8080-exec-3 ][ c.r.s.JwtAuthenticationFilter:51] JWT token does not begin with Bearer
    2024-04-13 10:07:36 [WARN][http-nio-8080-exec-3 ][ c.r.s.JwtAuthenticationFilter:66] Username is null or context is not null
+   2024-04-13 10:18:11 [INFO][SpringApplicationShutdownHook ][ o.s.o.j.LocalContainerEntityManagerFactoryBean:650] Closing JPA EntityManagerFactory for persistence unit 'default'
+   2024-04-13 10:18:11 [INFO][SpringApplicationShutdownHook ][ c.z.h.HikariDataSource:350] HikariPool-1 - Shutdown initiated...
+   2024-04-13 10:18:11 [INFO][SpringApplicationShutdownHook ][ c.z.h.HikariDataSource:352] HikariPool-1 - Shutdown completed.
    
