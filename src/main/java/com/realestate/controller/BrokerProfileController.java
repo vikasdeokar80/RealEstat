@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
 import java.util.List;
 
 @RestController
@@ -28,8 +27,8 @@ public class BrokerProfileController {
         }
     }
 
-    @PutMapping("/update")
-    public ResponseEntity<String> editBrokerProfile(@RequestBody BrokerProfileDto brokerProfileDto, @RequestParam Integer brokerProfileId) {
+    @PutMapping("/update/{brokerProfileId}") // Corrected the path variable name to match the method parameter name
+    public ResponseEntity<String> editBrokerProfile(@PathVariable("brokerProfileId") Integer brokerProfileId, @RequestBody BrokerProfileDto brokerProfileDto) {
         try {
             this.brokerProfileService.updateBrokerProfile(brokerProfileDto, brokerProfileId);
             return ResponseEntity.ok("Broker profile updated successfully.");
@@ -44,8 +43,8 @@ public class BrokerProfileController {
         return new ResponseEntity<>(allBrokerProfiles, HttpStatus.OK);
     }
 
-    @GetMapping("/getById")
-    public ResponseEntity<?> showBrokerProfileById(@RequestParam Integer brokerProfileId) throws BrokerProfileNotFoundException {
+    @GetMapping("/getById/{brokerProfileId}")
+    public ResponseEntity<?> showBrokerProfileById(@PathVariable("brokerProfileId") int brokerProfileId) throws BrokerProfileNotFoundException {
         try {
             BrokerProfileDto brokerProfileById = this.brokerProfileService.getBrokerProfileById(brokerProfileId);
             return new ResponseEntity<>(brokerProfileById, HttpStatus.OK);
@@ -54,8 +53,8 @@ public class BrokerProfileController {
         }
     }
 
-    @DeleteMapping("/deleteById")
-    public ResponseEntity<?> deleteBrokerProfileById(@RequestParam Integer brokerProfileId) throws BrokerProfileNotFoundException {
+    @DeleteMapping("/deleteById/{brokerProfileId}")
+    public ResponseEntity<?> deleteBrokerProfileById(@PathVariable("brokerProfileId") Integer brokerProfileId) throws BrokerProfileNotFoundException {
         try {
             this.brokerProfileService.deleteBrokerProfileById(brokerProfileId);
             return ResponseEntity.ok("Broker profile deleted successfully.");
